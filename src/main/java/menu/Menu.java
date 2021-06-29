@@ -98,25 +98,27 @@ Scanner sc = new Scanner(System.in);
     }
 
     public void deleteUse(){ //삭제
+        int n=0;
         while(true) {
             System.out.println("삭제를 원하는 학생의 학번을 입력해주세요.");
             dNumber = sc.nextInt();
-            int n = 0;
             for (int i = 0; i < useArr.size(); i++) {
-                if (dNumber==useArr.get(i).getstuNo()){
-                    useArr.get(i).dayTime=0;
-                    useArr.get(i).stuNumber =0;
-                    useArr.get(i).name="";
-                    n++;
-                    System.out.println(dNumber + "학생의 예약시간 삭제 완료");
+                if (dNumber == useArr.get(i).getstuNo()) {
+                    n+=1;
+                    useArr.remove(i);
                     break;
                 }
+
             }
             if (n == 0) {
                 System.out.println("해당 학번의 예약내역이 존재하지 않습니다");
+                break;
             }else{
+                System.out.println(dNumber + "학생의 예약시간 삭제 완료");
                 break;
             }
         }
+
+
     }
 }
