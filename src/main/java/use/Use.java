@@ -1,6 +1,4 @@
 package use;
-import java.util.*;
-
 
 //이용자명, 대표학생학번, 이용시간
 public class Use {
@@ -9,11 +7,6 @@ public class Use {
     public int stuNumber;
     public int dayTime;//이용시간
     public String useP;
-    private String answer;
-
-    public Use() {
-
-    }
 
     public int getstuNo() {
         return stuNumber;
@@ -39,6 +32,10 @@ public class Use {
         this.dayTime = dayTime;
     }
 
+    public Use() {
+
+    }
+
    public Use(String name, int stuNumber,int dayTime){
         super();
         this.name = name;
@@ -47,6 +44,4 @@ public class Use {
    }
 
 
-    public void remove(int i) {
-    }
 }
