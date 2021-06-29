@@ -16,7 +16,7 @@ Scanner sc = new Scanner(System.in);
 
         if (useArr.size() == 0) {
             for (int i = 9; i < 22; i++) {
-                System.out.println(i + "시 ~ " + (i + 1) + "시  :  OO");
+                System.out.println("모든시간 예약가능합니다");
             }
             System.out.println();
         } else {
@@ -99,7 +99,7 @@ Scanner sc = new Scanner(System.in);
 
     public void deleteUse(){ //삭제
         while(true) {
-            System.out.println("예약시간 삭제를 원하는 학생의 학번을 입력해주세요.");
+            System.out.println("삭제를 원하는 학생의 학번을 입력해주세요.");
             dNumber = sc.nextInt();
             int n = 0;
             for (int i = 0; i < useArr.size(); i++) {
