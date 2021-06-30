@@ -7,10 +7,14 @@ import use.Use;
 
 public class Main { //메뉴 보여주는 메인클래스
     public static void main(String[] args){
+        ArrayList<Use> list;
         Scanner sc = new Scanner(System.in);
-        Use use = new Use();
         use.getNumber=0;
+        Use use = new Use();
         ShowMenu showmenu = new ShowMenu();
+        FileService fileservice = new FileService();
+        list = fileservice.readFile();
+
         while(true) {
             showmenu.show();
             showmenu.choice();

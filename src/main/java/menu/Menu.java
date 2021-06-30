@@ -1,50 +1,51 @@
 package menu;
 import java.util.*;
 import use.Use;
+import java.io.*;
+import use.Use;
 
 public class Menu {
-ArrayList<Use>useArr = new ArrayList<Use>();
 Scanner sc = new Scanner(System.in);
     String answer;
     int dNumber;
+BufferedReader br;
 
-
-    public void showUse() { //시간대별 이용유무 표시
+    public void showUse(ArrayList<Use> list) { //시간대별 이용유무 표시
         String per = "OO";
         System.out.println();
         System.out.println("시간대별 예약자 현황");
 
-        if (useArr.size() == 0) {
+        if (list.size() == 0) {
             for (int i = 9; i < 22; i++) {
                 System.out.println("모든시간 예약가능합니다");
+                return;
             }
             System.out.println();
         } else {
-            for (int n = 0; n < useArr.size(); n++) {
-                System.out.print(useArr.get(n).getdayTime()+"시 ~  "+(useArr.get(n).getdayTime()+1)+"시  " );
-                System.out.print(useArr.get(n).getstuNo());
-                System.out.println(" "+useArr.get(n).getname());
+            for (int n = 0; n < list.size(); n++) {
+                System.out.println(list.get(n).getdayTime()+"시 ~  "+(list.get(n).getdayTime()+1)+"시  "+list.get(n).getstuNo() +" "+list.get(n).getname() );
             }
         }
     }
 
 
-
-
-
     public void saveUse() { //이용자 한명이 본인 예약 등록시
+        int num;
         int hour;
         int cnt = 0;
         Use use = new Use();
+
+        num = list.size();
+
         System.out.print("이용시작시간 입력(ex: 9) : ");
             hour = sc.nextInt();
             //시간이 중복되는지 안되는 지 확인
-            if(useArr.size()==0) {
+            if(list.size()==0) {
                 cnt = 0;
             }
-            else if(useArr.size()>=0){
-                for (int i = 0; i < useArr.size(); i++) {
-                    if (hour == useArr.get(i).getdayTime()) {
+            else if(list.size()>=0){
+                for (int i = 0; i < list.size(); i++) {
+                    if (hour == list.get(i).getdayTime()) {
                         cnt++;
                     }
                 }//end for
@@ -60,14 +61,16 @@ Scanner sc = new Scanner(System.in);
                 use.setstuNo(stuNumber);
 
             use.Use(hour,stuNumber,name);
-            useArr.add(use);
-            System.out.println(useArr);
+            list.add(use);
+            System.out.println(list);
 
             } else {
                 System.out.println("이미 이용중인 시간입니다.");
             }
+        //Use(int dayTime, int stuNumber, String name)
+        Use u = new Use(num,dayTime,stuNumber, name);
 
-
+        return u;
     }
 
 
@@ -78,10 +81,10 @@ Scanner sc = new Scanner(System.in);
             System.out.println("수정할 대표학생의 학번 입력바랍니다");
             int Number = sc.nextInt();
             int n=0;
-            for(int i=0; i< useArr.size();i++){
-                if(Number ==useArr.get(i).getstuNo()){
+            for(int i=0; i<list.size();i++){
+                if(Number ==list.get(i).getstuNo()){
                     System.out.println("시작 이용시간 입력바랍니다 ");
-                    useArr.get(i).setdayTime(sc.nextInt());
+                    list.get(i).setdayTime(sc.nextInt());
                     n++;
                     System.out.println(" 이용시간 수정이 완료되었습니다.");
                     break;
@@ -102,10 +105,10 @@ Scanner sc = new Scanner(System.in);
         while(true) {
             System.out.println("삭제를 원하는 학생의 학번을 입력해주세요.");
             dNumber = sc.nextInt();
-            for (int i = 0; i < useArr.size(); i++) {
-                if (dNumber == useArr.get(i).getstuNo()) {
+            for (int i = 0; i < list.size(); i++) {
+                if (dNumber == list.get(i).getstuNo()) {
                     n+=1;
-                    useArr.remove(i);
+                    list.remove(i);
                     break;
                 }
 
