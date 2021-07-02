@@ -6,7 +6,19 @@ public class Use {
     public String name;
     public int stuNumber;
     public int dayTime;//이용시간
-    public int getNumber;
+    public int i;
+
+
+    public Use(int i, int dayTime, int stuNumber, String name) {
+        this.i = i;
+        this.dayTime = dayTime;
+        this.stuNumber = stuNumber;
+        this.name = name;
+    }
+
+    public int getI(){
+        return i;
+    }
 
 
     public int getstuNo() {
@@ -33,14 +45,6 @@ public class Use {
 
         this.dayTime = dayTime;
     }
-
-
-
-   public void Use(int dayTime, int stuNumber, String name){
-        this.name = name;
-        this.stuNumber = stuNumber;
-        this.dayTime = dayTime;
-   }
 
 
 
