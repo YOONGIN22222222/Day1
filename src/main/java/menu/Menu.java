@@ -3,18 +3,18 @@ import java.util.*;
 import use.Use;
 
 public class Menu {
-    ArrayList<Use> list =new ArrayList<>() ;
+    //ArrayList<Use> list =new ArrayList<>() ;
 Scanner sc = new Scanner(System.in);
     int dNumber;
 
 
-    public void showUse() {
+    public void showUse(ArrayList<Use> list ) {
         //시간대별 이용유무 표시
 
         System.out.println();
         System.out.println("시간대별 예약자 현황");
 
-        if (this.list.isEmpty()){
+        if (list.isEmpty()){
                 System.out.println("모든시간 예약가능합니다");
         System.out.println();
         return;
@@ -26,7 +26,7 @@ Scanner sc = new Scanner(System.in);
 
 
 
-    public void saveUse() { //이용자 한명이 본인 예약 등록시
+    public void saveUse(ArrayList<Use> list ) { //이용자 한명이 본인 예약 등록시
         int num=0;
         int hour=0;
         String name ="";
@@ -75,7 +75,7 @@ Scanner sc = new Scanner(System.in);
 
 
 
-    public void updateUse(){ //수정
+    public void updateUse(ArrayList<Use> list ){ //수정
         while(true){
             //수정할 대표학생의 학번 입력
             System.out.println("수정할 대표학생의 학번 입력바랍니다");
@@ -100,7 +100,7 @@ Scanner sc = new Scanner(System.in);
         }
     }
 
-    public void deleteUse(){ //삭제
+    public void deleteUse(ArrayList<Use> list ){ //삭제
         int n=0;
         while(true) {
             System.out.println("삭제를 원하는 학생의 학번을 입력해주세요.");

@@ -20,16 +20,16 @@ public class Main { //메뉴 보여주는 메인클래스
                 String number = showM.show();
                 switch (number) {
                     case "1": //예약현황확인
-                        menu.showUse();
+                        menu.showUse(list);
                         break;
                     case "2": //예약 등록
-                        menu.saveUse();
+                        menu.saveUse(list);
                         break;
                     case "3": //예약 내용 수정
-                        menu.updateUse();
+                        menu.updateUse(list);
                         break;
                     case "4": //예약 삭제
-                        menu.deleteUse();
+                        menu.deleteUse(list);
                         break;
                     case "5"://파일에 기록
                         fileService.writeFile(list);
