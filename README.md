@@ -27,3 +27,6 @@ Menu
 ####UPDATE관련 기능 구현 모습이다
 ![image](https://user-images.githubusercontent.com/83248175/124281984-3fa76380-db85-11eb-8ff8-4b85bfb1bbc3.png)
 --------------
+---------------
+-----------
+#Day2  FILE IO
